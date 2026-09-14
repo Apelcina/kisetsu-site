@@ -37,15 +37,12 @@ async function handleSofi(request, env) {
     });
 
     const message = await anthropicRes.json();
-    if (!anthropicRes.ok) {
-      return Response.json({ error: 'Sofi is offline', debug: message }, { status: 500 });
-    }
     const raw = message.content[0].text
       .replace(/^```json\s*/i, '').replace(/```\s*$/, '').trim();
     const parsed = JSON.parse(raw);
     return Response.json(parsed);
   } catch (e) {
-    return Response.json({ error: 'Sofi is offline', debug: String(e) }, { status: 500 });
+    return Response.json({ error: 'Sofi is offline' }, { status: 500 });
   }
 }
 
