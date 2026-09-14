@@ -14,7 +14,7 @@ Rules:
 - "reply" should be very short and military — e.g. "Aye, captain." or "Engines online, captain." No flavor text, no drama
 - Never break character`;
 
-export async function onRequestPost({ request, env }) {
+async function handleSofi(request, env) {
   const { text } = await request.json();
   if (!text) {
     return Response.json({ error: 'No text provided' }, { status: 400 });
@@ -45,3 +45,13 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ error: 'Sofi is offline' }, { status: 500 });
   }
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === '/api/sofi' && request.method === 'POST') {
+      return handleSofi(request, env);
+    }
+    return env.ASSETS.fetch(request);
+  },
+};
