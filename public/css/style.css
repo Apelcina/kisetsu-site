@@ -1,135 +1,276 @@
 :root {
-  --bg: #fafafa;
-  --text: #1a1a1a;
-  --muted: #666;
-  --accent: #2b5fff;
-  --border: #e3e3e3;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14161a;
-    --text: #eaeaea;
-    --muted: #9a9a9a;
-    --accent: #6d9bff;
-    --border: #2a2d33;
-  }
+  --desktop: #008080;
+  --gray: #c0c0c0;
+  --gray-dark: #808080;
+  --navy: #000080;
+  --navy-dark: #000058;
+  --black: #000000;
+  --white: #ffffff;
+  --text: #000000;
+  --link: #000080;
 }
 
 * { box-sizing: border-box; }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--desktop);
+  background-image:
+    repeating-conic-gradient(#017a7a 0% 25%, #008080 0% 50%);
+  background-size: 4px 4px;
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: Tahoma, "Segoe UI", Geneva, Verdana, sans-serif;
+  font-size: 13px;
   line-height: 1.5;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
 }
 
-header {
-  border-bottom: 1px solid var(--border);
+a { color: var(--link); }
+
+/* --- retro bevels --- */
+
+.raised {
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--black),
+    inset 2px 2px 0 #dfdfdf,
+    inset -2px -2px 0 var(--gray-dark);
 }
 
-nav {
-  max-width: 800px;
+.sunken {
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--black),
+    inset -1px -1px 0 var(--white),
+    inset 2px 2px 0 var(--gray-dark),
+    inset -2px -2px 0 #dfdfdf;
+}
+
+/* --- window chrome --- */
+
+.window {
+  max-width: 640px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--black),
+    2px 2px 0 rgba(0,0,0,0.4);
+  padding: 3px;
 }
 
-nav .brand {
-  font-weight: 700;
+.titlebar {
+  background: linear-gradient(90deg, var(--navy), #1084d0);
+  color: var(--white);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 4px 3px 6px;
+  user-select: none;
+}
+
+.titlebar a.titlebar-label {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.titlebar-controls {
+  display: flex;
+  gap: 3px;
+}
+
+.titlebar-controls span {
+  width: 16px;
+  height: 14px;
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--black);
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--black);
+  font-weight: bold;
+}
+
+.win-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+/* --- homepage tab tiles --- */
+
+.tab-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.tab-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
   text-decoration: none;
   color: var(--text);
+  cursor: pointer;
 }
 
-nav .links a {
-  margin-left: 1.5rem;
+.tab-tile:active {
+  box-shadow:
+    inset 1px 1px 0 var(--black),
+    inset -1px -1px 0 var(--white),
+    inset 2px 2px 0 var(--gray-dark),
+    inset -2px -2px 0 #dfdfdf;
+}
+
+.tab-tile .icon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.tab-tile .label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tab-tile .sub {
+  display: block;
+  font-weight: normal;
+  font-size: 11px;
+  color: #333;
+}
+
+/* --- compact nav strip (inner pages) --- */
+
+.tab-strip {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  flex-wrap: wrap;
+}
+
+.tab-strip a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
   text-decoration: none;
-  color: var(--muted);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: bold;
 }
 
-nav .links a:hover {
-  color: var(--accent);
+.tab-strip a:active {
+  box-shadow:
+    inset 1px 1px 0 var(--black),
+    inset -1px -1px 0 var(--white),
+    inset 2px 2px 0 var(--gray-dark),
+    inset -2px -2px 0 #dfdfdf;
 }
 
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+.tab-strip .icon {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
 }
 
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+/* --- content --- */
 
-.hero p {
-  color: var(--muted);
-}
-
-.projects {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-}
-
-.card h2 {
+h1 {
+  font-size: 15px;
   margin: 0 0 0.4rem;
 }
 
-.card p {
-  color: var(--muted);
-  margin: 0 0 0.75rem;
+.hero p {
+  margin: 0;
+  color: #222;
 }
 
-.card ul {
-  color: var(--muted);
-  margin: 0 0 0.75rem;
-  padding-left: 1.25rem;
+.field {
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.9rem;
 }
 
-.card a {
-  color: var(--accent);
+.field h2 {
+  font-size: 13px;
+  margin: 0 0 0.5rem;
+}
+
+.field p {
+  margin: 0 0 0.5rem;
+  color: #222;
+}
+
+.field ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  color: #222;
+}
+
+.field .play-btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
   text-decoration: none;
-  font-weight: 600;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.field .play-btn:active {
+  box-shadow:
+    inset 1px 1px 0 var(--black),
+    inset -1px -1px 0 var(--white),
+    inset 2px 2px 0 var(--gray-dark),
+    inset -2px -2px 0 #dfdfdf;
 }
 
 .posts {
   display: grid;
-  gap: 2rem;
+  gap: 0.9rem;
 }
 
 .post-preview h2 {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.15rem;
+  font-size: 13px;
 }
 
 .post-preview h2 a {
   color: var(--text);
-  text-decoration: none;
 }
 
-.post-preview time {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
+.post-preview time,
 article.post time {
-  color: var(--muted);
-  font-size: 0.85rem;
+  color: #444;
+  font-size: 11px;
 }
 
-footer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  color: var(--muted);
-  font-size: 0.85rem;
+article.post p {
+  color: #222;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 12px;
+}
+
+footer.win-footer {
+  text-align: center;
+  color: var(--white);
+  font-size: 11px;
+  margin-top: 0.6rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
 }
