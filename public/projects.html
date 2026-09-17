@@ -4,79 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects · Apel</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="window">
-    <div class="titlebar">
-      <a class="titlebar-label" href="index.html">
-        <svg width="14" height="14" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
-          <rect x="1" y="4" width="6" height="2" fill="#fada6b" stroke="#000" stroke-width="0.6"/>
-          <rect x="1" y="6" width="14" height="9" fill="#ffdd77" stroke="#000" stroke-width="0.6"/>
-        </svg>
-        PROJECTS.EXE
-      </a>
-      <span class="titlebar-controls">
-        <span>_</span><span>&#9633;</span><span>X</span>
-      </span>
-    </div>
+  <div class="screen">
+    <p class="prompt">guest@apel:~$ cd ..</p>
+    <nav class="tab-strip">
+      <a href="index.html">home</a>
+      <a href="blog/index.html">blog</a>
+      <a href="https://www.youtube.com/@csalt6585" target="_blank" rel="noopener noreferrer">youtube</a>
+    </nav>
 
-    <div class="win-body raised">
-      <nav class="tab-strip">
-        <a class="raised" href="index.html">
-          <svg class="icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
-            <rect x="1" y="1" width="14" height="14" fill="#c0c0c0" stroke="#000" stroke-width="0.6"/>
-            <rect x="3" y="3" width="10" height="10" fill="#000080"/>
-          </svg>
-          Home
-        </a>
-        <a class="raised" href="blog/index.html">
-          <svg class="icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
-            <rect x="3" y="1" width="10" height="14" fill="#ffffff" stroke="#000" stroke-width="0.5"/>
-            <rect x="5" y="4" width="6" height="1" fill="#000080"/>
-            <rect x="5" y="6" width="6" height="1" fill="#000080"/>
-            <rect x="5" y="8" width="6" height="1" fill="#000080"/>
-          </svg>
-          Blog
-        </a>
-        <a class="raised" href="https://www.youtube.com/@csalt6585" target="_blank" rel="noopener noreferrer">
-          <svg class="icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
-            <rect x="1" y="2" width="14" height="10" fill="#000000"/>
-            <rect x="2" y="3" width="12" height="8" fill="#3b3b3b"/>
-            <polygon points="6,5 6,9 11,7" fill="#ffffff"/>
-          </svg>
-          YouTube
-        </a>
-      </nav>
-
-      <h1>Projects</h1>
-      <section class="projects">
-        <article class="field sunken">
-          <h2>Yes, Captain</h2>
-          <p>A simple test project — small-scale WebGL space combat with an AI crewmate.</p>
-          <ul>
-            <li>Lock onto enemies and orbit them</li>
-            <li>Fire lasers, a pulse cannon, and a lance beam</li>
-            <li>Manage a shared power pool — throttle and shield regen both draw from it, so balancing shields, engines, and weapons under fire matters</li>
-            <li>Give orders by typing or speaking — Sofi interprets them via the Anthropic API</li>
-          </ul>
-          <p><strong>Controls:</strong> W/S pitch, A/D turn, drag mouse to look around, scroll to zoom, click a hostile to lock on, sliders to reallocate power between shields and engines.</p>
-          <a class="play-btn raised" href="games/yes-captain/">Play</a>
-        </article>
-        <article class="field sunken">
-          <h2>Kibi</h2>
-          <p>A Chao Garden&ndash;inspired virtual pet prototype &mdash; a low-poly, Sonic Adventure 2 Battle&ndash;style creature that grows and changes as it's fed different elements.</p>
-          <ul>
-            <li>Feed elemental traits (fire, water, ice, nature, lightning, ground, dark) and watch Kibi's color, shape, and body effects evolve in real time</li>
-            <li>Three growth stages, from a single rocking blob to a full four-limbed creature with its own idle gestures</li>
-            <li>Wanders a small low-poly home island on its own &mdash; walks to a spot, idles, fidgets, then moves on</li>
-            <li>Collectible "seed" orbs scattered around the island, one per element, plus a Bitcoin-themed satoshi orb</li>
-          </ul>
-          <p><strong>Controls:</strong> drag to orbit the camera, scroll to zoom, use the trait panel to feed elements and change age/shape.</p>
-          <a class="play-btn raised" href="games/kibi-game/">Play</a>
-        </article>
-      </section>
-    </div>
+    <p class="prompt">guest@apel:~/projects$ ls -la</p>
+    <h1>Projects</h1>
+    <section class="projects">
+      <article class="field">
+        <h2>Yes, Captain</h2>
+        <p>A simple test project — small-scale WebGL space combat with an AI crewmate.</p>
+        <ul>
+          <li>Lock onto enemies and orbit them</li>
+          <li>Fire lasers, a pulse cannon, and a lance beam</li>
+          <li>Manage a shared power pool — throttle and shield regen both draw from it, so balancing shields, engines, and weapons under fire matters</li>
+          <li>Give orders by typing or speaking — Sofi interprets them via the Anthropic API</li>
+        </ul>
+        <p><strong>Controls:</strong> W/S pitch, A/D turn, drag mouse to look around, scroll to zoom, click a hostile to lock on, sliders to reallocate power between shields and engines.</p>
+        <a class="play-btn" href="games/yes-captain/">Play</a>
+      </article>
+      <article class="field">
+        <h2>Kibi</h2>
+        <p>A Chao Garden&ndash;inspired virtual pet prototype &mdash; a low-poly, Sonic Adventure 2 Battle&ndash;style creature that grows and changes as it's fed different elements.</p>
+        <ul>
+          <li>Feed elemental traits (fire, water, ice, nature, lightning, ground, dark) and watch Kibi's color, shape, and body effects evolve in real time</li>
+          <li>Three growth stages, from a single rocking blob to a full four-limbed creature with its own idle gestures</li>
+          <li>Wanders a small low-poly home island on its own &mdash; walks to a spot, idles, fidgets, then moves on</li>
+          <li>Collectible "seed" orbs scattered around the island, one per element, plus a Bitcoin-themed satoshi orb</li>
+        </ul>
+        <p><strong>Controls:</strong> drag to orbit the camera, scroll to zoom, use the trait panel to feed elements and change age/shape.</p>
+        <a class="play-btn" href="games/kibi-game/">Play</a>
+      </article>
+    </section>
   </div>
 
   <footer class="win-footer">&copy; 2026 Apel</footer>
